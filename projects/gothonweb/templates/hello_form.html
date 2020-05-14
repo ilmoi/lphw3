@@ -1,0 +1,31 @@
+<!-- old -->
+<!-- <html>
+  <head>
+    <title>Sample web form</title>
+  </head>
+  <body>
+    <h1>Fill out this form</h1>
+    <form action="/hello" method='POST'>
+      A greeting: <input type="text" name="greet">
+      <br/>
+      Your name: <input type="text" name="name">
+      <br/>
+      <input type="submit">
+    </form>
+  </body>
+</html> -->
+
+<!-- new -->
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Fill Out This Form</h1>
+<form action="/hello" method='POST'>
+  A greeting: <input type="text" name="greet">
+  <br/>
+  Your name: <input type="text" name="name">
+  <br/>
+  <input type="submit">
+
+{% endblock %}

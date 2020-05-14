@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1> {{ room.name }} </h1>
+<pre> {{ room.description }} </pre>
+
+<!-- if you hit either death or the end, you're no longer allowed input - and instead you have a hyperlink to begin all over -->
+{% if room.name in ['Death', 'The End'] %}
+  <p><a href="/">Play Again?</a></p>
+{% else %}
+  <p>
+  <!-- otherwise what happens is we send a post request to /game, which will load up the new H1 and PRE, while also giving you a new input box-->
+  <form action="/game" method="POST">
+    <input type="text" name="action">
+    <input type="submit">
+  </form>
+</p>
+{% endif %}
+
+{% endblock %}
